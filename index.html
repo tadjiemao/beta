@@ -180,6 +180,77 @@
 	  transform: translateY(22px); /* 向下位移 */
     }
 
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+	  /* justify-content: space-between;
+	  项目在容器中按照两端对齐的方式排列，项目之间的间隔会平均分布，
+	  使得第一个项目位于容器的起始位置，最后一个项目位于容器的结束位置，
+	  中间的项目之间的间隔会被均匀地分布。 */
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 999;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+    }
+
+    .line {
+      width: 100%;
+      height: 3px;
+      background-color: #ccc;
+	  /* 这段 CSS 代码是用于创建 CSS 属性 transform 的过渡效果。
+	  0.3s 指定了过渡的持续时间为 0.3 秒。
+	  这表示当元素的 transform 属性发生变化时，变化的过程会在 0.3 秒内完成。
+	  ease 是过渡效果的时间曲线，它指定了变化速度的规律。
+	  ease 表示在过渡开始和结束时速度较慢，中间时速度较快。 */
+      transition: transform 0.3s ease;
+    }
+
+    nav {
+	  border-radius: 5%;
+      display: none; /* 用于不占据空间地隐藏元素 */
+      position: fixed;
+      top: 60px;
+      left: 15px;
+      background-color: rgba(255, 255, 255, 0.8);
+	  border: 8px solid rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	  text-align: center;
+    }
+
+    /* 菜单 (<nav>) 元素最初的状态是 display: none;，即不显示。
+	当点击汉堡菜单图标后，通过 JavaScript 中的 toggleMenu() 函数为菜单元素添加了 open 类。
+    而在 CSS 中，.open 是指选择具有 open 类的 nav 元素，并将其 display 设置为 block，
+	这样菜单就会显示出来。 */
+    nav.open {
+      display: block;
+    }
+
+    nav a {
+	  font-family: Aria, serif;
+      display: block;
+      margin-bottom: 5px;
+      padding: 5px; /* 用于设置元素内容区域与其边框之间的间距 */
+	  /* 通常，链接文本默认会带有下划线以表示其可点击性 */
+      text-decoration: none; /* 用于移除链接（<a> 标签）的下划线效果 */
+      color: #333;
+      border-bottom: 1px solid #696969;
+    }
+
+    nav a:last-child { /* 选择 <nav> 元素中的最后一个 <a> 子元素 */
+	  margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    nav a:hover {
+      color: #382005;
+	  transform: translateY(-2px);
+    }
+
   </style>
 </head>
 
@@ -233,6 +304,24 @@
       </select>
     </div>
   </div>
+  
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <nav id="menu">
+    <!-- 
+	  这段代码是一个超链接 <a>，它用于创建指向网页或网站的链接。
+	  在这个例子中，href属性指定了链接的目标网址为 https://www.google.com，
+	  target="_blank"部分是一个属性，用于指示链接在新的浏览器窗口或标签页中打开。
+	-->
+    <a href="https://www.google.com" target="_blank">Google</a>
+    <a href="https://www.bing.com" target="_blank">Bing</a>
+    <a href="https://www.baidu.com" target="_blank">Baidu</a>
+  </nav>
+  
   <script>
   
     const audio = document.getElementById('audio');
@@ -407,6 +496,35 @@
       timeDisplay.style.visibility = 'hidden'; // 隐藏时间显示元素
     }
 
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('open');
+	  // classList.toggle('open') 是 JavaScript 中用于切换元素类名的方法。
+	  // 在这个例子中，它的作用是在菜单元素的类列表中添加或移除 open 类。
+	  // 如果菜单元素没有 open 类，则添加这个类；如果已经有了 open 类，则移除它。
+	  // 这种行为可以通过切换类名来控制菜单的显示和隐藏。
+	  
+      const lines = document.querySelectorAll('.line'); // 变量 lines = 所有具有 .line 类的 HTML 元素
+      // index 表示 .line 元素在 lines 这个集合中的位置序号，
+	  // 从零开始递增，依次表示每个被选中的元素的位置。
+	  lines.forEach((line, index) => {
+        if (menu.classList.contains('open')) { // 如果菜单是打开的（即包含 open 类）
+          if (index === 0) {
+		  	// rotate(-45deg) 沿顺时针方向旋转 45 度
+		    // translateY(-11px) 沿 Y 轴方向平移 11 像素
+            line.style.transform = 'rotate(45deg) translateY(11px)';
+          } else if (index === 1) {
+            line.style.opacity = '0';
+          } else if (index === 2) {
+            line.style.transform = 'rotate(-45deg) translateY(-11px)';
+          }
+        } else {
+          line.style.transform = 'none';
+          line.style.opacity = '1';
+        }
+      });
+    }
+	
   </script>
 </body>
 
