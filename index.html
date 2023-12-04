@@ -31,6 +31,10 @@
 	  #video-background {
         display: none;
       }
+	  
+      .line {
+        background-color: white;
+      }
     }
 	
     #video-background {
@@ -46,6 +50,7 @@
 
     .player {
       text-align: center; /* 文字居中 */
+   /* background: linear-gradient(to bottom, black, white); */ /* 渐变色 */
       background-color: rgba(255, 255, 255, 0.8); /* 设置背景颜色为白色, 透明度为0.7 (1: 不透明; 0:透明)*/
       padding: 40px; /* 设置内边距 */
       border-radius: 35px; /* 设置边框圆角 */
@@ -260,7 +265,7 @@
     }
 
     nav a:hover {
-      color: #382005;
+      color: #2F4F4F;
 	  transform: translateY(-2px);
     }
 
@@ -327,12 +332,12 @@
   <nav id="menu">
     <!-- 
 	  这段代码是一个超链接 <a>，它用于创建指向网页或网站的链接。
-	  在这个例子中，href属性指定了链接的目标网址为 https://www.google.com，
+	  比如说，href属性指定了链接的目标网址为 https://www.google.com，
 	  target="_blank"部分是一个属性，用于指示链接在新的浏览器窗口或标签页中打开。
 	-->
-    <a href="https://www.google.com" target="_blank">Google</a>
-    <a href="https://www.bing.com" target="_blank">Bing</a>
-    <a href="https://www.baidu.com" target="_blank">Baidu</a>
+    <a href="https://zh.wikipedia.org/wiki/%E8%91%89%E6%83%A0%E7%BE%8E" target="_blank">维基</a>
+    <a href="https://music.douban.com/subject/1406522/" target="_blank">豆瓣</a>
+    <a href="https://www.mulanci.org/lyric/sa18997/" target="_blank">歌词</a>
   </nav>
   
   <script>
