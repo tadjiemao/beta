@@ -17,9 +17,22 @@
    /* background-image: url("music_fondo.jpg");
 	  background-size: cover;
       background-repeat: no-repeat;
-      background-position: center; */
+      background-position: right; */
     }
 
+    @media only screen and (max-width: 980px) {
+	  body {
+        background-image: url("music_fondo.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right;
+	  }
+	  
+	  #video-background {
+        display: none;
+      }
+    }
+	
     #video-background {
       position: fixed;
       right: 0;
