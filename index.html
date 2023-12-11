@@ -18,6 +18,7 @@
 	  background-size: cover;
       background-repeat: no-repeat;
       background-position: right; */
+	  overflow-Y: hidden; /* 隐藏垂直滚动条 */
     }
 
     @media only screen and (max-width: 980px) {
@@ -31,10 +32,6 @@
 	  #video-background {
         display: none;
       }
-	  
-      .line {
-        background-color: white;
-      }
     }
 	
     #video-background {
@@ -46,6 +43,36 @@
       width: auto;
       height: auto;
       z-index: -1000;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+	
+    .text-box {
+      width: 306px;
+      height: 612px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 15px 15px rgba(105, 105, 105, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+	  overflow-y: auto; /* 添加垂直滚动条 */
+	  border: 5px solid #F5F5F5;
+	  border-radius: 10px;
+	  padding: 20px;
+    }
+	
+	.text-box p {
+	  cursor: pointer;
+	  font-family: Georgia, serif;
+	}
+	
+    .text-box p:hover {
+      color: #556B2F;
     }
 
     .player {
@@ -273,6 +300,39 @@
 </head>
 
 <body>
+ <div class="container">
+   <div class="text-box">
+   <p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp简介  · · · · · · <br><br>
+　　欣赏JAY复古新造型：<br>
+　　更有深度的周杰伦《叶惠美》<br><br>
+　　近日转会加盟新公司的周杰伦，同时推出了其年度国语专辑《叶惠美》，收录11首个人独唱歌曲。虽然新碟的惊喜不大，但仍保持着阿Jay一贯的个人风格(其实这正是乐迷最喜欢的)，而且多首歌曲亦较以往更有深度，故此并不算「原地踏步」。再者，当中某几首歌曲，更是惹人钟爱之作，相信这专辑依然会得到不少乐迷支持。<br>
+　　「以父之名」故事性强，歌词用了很多不同的景物去呈现歌中「教父」那懊恼与痛苦的心境，令听者能有更立体更实在的感受。此歌的编曲方面亦富歌剧味道，与歌曲的整体感觉与主题配合。<br>
+　　近期经常在电视上听到的广告歌「你听得到」，是首较大路的作品，旋律流畅动听，歌词则温馨但不特别。曲词动人的「爱的悬崖」运用了大量的弦乐，阿Jay的诠释富感情，能表达出歌中的无奈与伤感。作词人徐若瑄近年填的词都讨好，言简意远，可惜题材不广，未能在词坛创作更大成就。<br>
+　　「三年二班」写出许多朋友在年青时的疑问与心声，整首歌让人有一种说不出的感受，勾起了听者许多许多的回忆。仿古的「东风破」不仅曲子有味道，方文山写的歌词更精彩，非但用字优美，一向注重韵脚的他，填得很有韵味。<br>
+　　揉合了中乐、少数民族音乐及西方乐器的「梯田」，唱出「物换星移，故地不再」的唏嘘，不过头几句揶揄方文山写词慢的几句，真的十分搞笑。「双刀」是阿Jay专辑必备之作，正如前作「双截棍」及「龙拳」般，总觉得阿Jay中李小龙毒太深，此歌的吸引力只属一般。<br>
+　　其它歌曲方面，情歌「晴天」、写一见如故的「同一种调调」及摇滚味重的「懦夫」亦不容错过。<br><br>
+　　谁是「叶惠美」?<br>
+　　周杰伦 (Jay) 每次出碟，除了在音乐上带给大家惊奇外，就连专辑名称都会让人有无限的想象空间，如之前《范特西》、《八度空间》。这次Jay的新专辑，光看专辑名称「叶惠美」就够吸引了，但也让歌迷在心中打了一个大问号，究竟「叶惠美」是何许人也？可以让Jay用他的名字作为专辑名称？原来在他的新专辑中第一波强打主打歌为「以父之名」，为了以示公平，想象力丰富的Jay灵机一动，就用母亲的名字「叶惠美」作为专辑名称来平衡一下，因此专辑名称「叶惠美」原由在此。<br>
+    <br>
+    <br>
+	<!-- &nbsp;这是新一行的文本，具有首行空格。-->
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp曲目  · · · · · ·<br><br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp以父为名<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp儒夫<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp晴天<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp三年二班<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp东风破<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp你听得到<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp同一种调调<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp她的睫毛<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp爱情悬崖<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp梯田<br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp双刀<br>
+	<br>
+	</p>
+  </div>
   <div class="player">
     <div>
     <img class="album-cover" src="yehuimei.jpg" alt="Album Cover">
@@ -322,6 +382,7 @@
       </select>
     </div>
   </div>
+ </div>
   
   <div class="hamburger-menu" onclick="toggleMenu()">
     <div class="line"></div>
