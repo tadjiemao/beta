@@ -425,22 +425,22 @@
     const songs = ['music1.mp3', 'music2.mp3', 'music3.mp3', 'music4.mp3', 'music5.mp3', 'music6.mp3', 'music7.mp3', 'music8.mp3', 'music9.mp3', 'music10.mp3', 'music11.mp3'];
     const songNames = ['1.以父之名', '2.懦夫', '3.晴天', '4.三年二班', '5.东风破', '6.你听得到', '7.同一种调调', '8.她的睫毛', '9.爱情悬崖', '10.梯田', '11.双刀'];
 
-    function loadSong() {
+    function loadSong() { // 音乐资源加载:
       audio.src = songs[currentSong]; // 将 <audio> 元素的音频源设置为 songs 数组中 currentSong 索引位置的音频文件路径
       updateSongName(); // 更新歌曲名称显示
     }
 
-    function hideProgress() {
+    function hideProgress() { // 隐藏进度条:
       const progressContainer = document.getElementById('progressContainer');
       progressContainer.style.visibility = 'hidden'; // 隐藏进度条
     }
 
-    function showProgress() {
+    function showProgress() { // 显示进度条:
       const progressContainer = document.getElementById('progressContainer');
       progressContainer.style.visibility = 'visible'; // 显示进度条
     }
 
-    function playMusic() {
+    function playMusic() { // 播放音乐:
       audio.play();
       albumCover.style.animation = 'rotate 8s linear infinite';
       isPlaying = true;
@@ -449,13 +449,13 @@
 	  showTimeDisplay();
     }
 
-    function pauseMusic() {
+    function pauseMusic() { //暂停按钮:
       audio.pause();
       albumCover.style.animationPlayState = 'paused';
       isPlaying = false;
     }
 
-    function stopMusic() {
+    function stopMusic() { // 停止按钮:
       audio.pause();
       audio.currentTime = 0;
       albumCover.style.animation = '';
@@ -468,7 +468,7 @@
    // loadSong()
     }
 
-    function playPauseMusic() {
+    function playPauseMusic() { // 播放/停止按钮:
       if (isPlaying==true) {
         pauseMusic(); // 如果音乐正在播放，则暂停音乐
       } else if (isPlaying==false) {
@@ -476,14 +476,14 @@
       }
     }
 
-    function endToNextSong() {
+    function endToNextSong() { // 歌曲结束自动跳换下一首:
       currentSong = (currentSong + 1) % songs.length; // (ej:(0+1)/11=>resto"余"=1=第二首)
       loadSong();
       playMusic();
       albumCover.style.animation = '';
 	}
 
-    function nextSong() {
+    function nextSong() { // 下一首按钮:
 	if (isPlaying==true) {
       currentSong = (currentSong + 1) % songs.length; // (ej:(0+1)/11=>resto"余"=1=第二首)
       loadSong();
@@ -492,7 +492,7 @@
       }
 	}
 
-    function previousSong() {
+    function previousSong() { // 上一首按钮:
 	if (isPlaying==true){
       currentSong = (currentSong - 1 + songs.length) % songs.length; // (ej:((0-1)+11)/11=>resto"余"=10=第十一首)
       loadSong();
@@ -501,7 +501,7 @@
       }
 	}
 
-    function updateSongName() {
+    function updateSongName() { // 歌名展示:
       songNameElement.textContent = songNames[currentSong];
     }
 
@@ -517,7 +517,7 @@
 
     loadSong(); // 用于初始化页面时加载第一首歌曲
 	
-    function changeSong() {
+    function changeSong() { // 手动更换歌曲:
       const songList = document.getElementById('songList');
       currentSong = parseInt(songList.value); // 获取选择的歌曲索引值. parseInt()是用于解析字符串并返回整数的函数
       loadSong(); // 加载选择的歌曲
@@ -559,8 +559,8 @@
       const currentTimeDisplay = document.querySelector('.time-display .current-time'); // 使用 document.querySelector 方法选择了具有类名为 time-display 的元素下的类名为 current-time 的元素
       const totalTimeDisplay = document.querySelector('.time-display .total-time'); // 使用 document.querySelector 方法选择了具有类名为 time-display 的元素下的类名为 total-time 的元素
 
-      currentTimeDisplay.textContent = currentTime; // 将格式化后的当前播放时间更新到 HTML 元素中，显示当前播放时间
-      totalTimeDisplay.textContent = totalTime; // 将格式化后的总播放时间更新到 HTML 元素中，显示总播放时间
+      currentTimeDisplay.textContent = currentTime; // 将格式化后的 当前播放时间 更新到 HTML 元素中，显示当前播放时间
+      totalTimeDisplay.textContent = totalTime; // 将格式化后的 总播放时长 更新到 HTML 元素中，显示总播放时间
     });
 
     function formatTime(seconds) { // 将以秒为单位的时间转换为 分:秒 的格式，以便更好地显示时间
@@ -577,17 +577,17 @@
       return `${minutes}:${formattedSeconds}`; // 将格式化后的分钟数和剩余秒数组合成 分钟:秒 的格式，并作为函数的返回值返回
     }
 	
-    function showTimeDisplay() {
+    function showTimeDisplay() { // 显示时间显示:
       const timeDisplay = document.getElementById('timeDisplay');
       timeDisplay.style.visibility = 'visible'; // 显示时间显示元素
     }
 	
-    function hideTimeDisplay() {
+    function hideTimeDisplay() { // 隐藏时间显示:
       const timeDisplay = document.getElementById('timeDisplay');
       timeDisplay.style.visibility = 'hidden'; // 隐藏时间显示元素
     }
 
-    function toggleMenu() {
+    function toggleMenu() { // 菜单:
       const menu = document.getElementById('menu');
       menu.classList.toggle('open');
 	  // classList.toggle('open') 是 JavaScript 中用于切换元素类名的方法。
@@ -616,6 +616,54 @@
       });
     }
 	
+// 蜘蛛网背景特效: 	
+!function () { 
+function n(n, e, t) { 
+return n.getAttribute(e) || t 
+} 
+function e(n) { 
+return document.getElementsByTagName(n) 
+} 
+function t() { 
+var t = e("script"), o = t.length, i = t[o - 1]; 
+return {l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,0,0"), n: n(i, "count", 99)} 
+} 
+function o() { 
+a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, c 
+= m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight 
+} 
+function i() { 
+r.clearRect(0, 0, a, c); 
+var n, e, t, o, m, l; 
+s.forEach(function (i, x) { 
+ for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y 
+ - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e], null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l = o * o 
+ + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m), t = (n.max - l) / n.max, 
+ r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, 
+ n.y), r.stroke())) 
+ }), x(i) 
+ } 
+ var a, c, u, m = document.createElement("canvas"), d = t(), l = "c_n" + d.l, r = m.getContext("2d"), 
+ x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || 
+ window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame 
+ || function (n) { 
+ window.setTimeout(n, 1e3 / 45) 
+ }, w = Math.random, y = {x: null, y: null, max: 2e4}; 
+ m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, 
+ e("body")[0].appendChild(m), o(), window.onresize = o, window.onmousemove = function (n) { 
+ n = n || window.event, y.x = n.clientX, y.y = n.clientY 
+ }, window.onmouseout = function () { 
+ y.x = null, y.y = null 
+ }; 
+ for (var s = [], f = 0; d.n > f; f++) { 
+ var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1; 
+ s.push({x: h, y: g, xa: v, ya: p, max: 6e3}) 
+ } 
+ u = s.concat([y]), setTimeout(function () { 
+ i() 
+ }, 100) 
+ }(); 
+ 
   </script>
 </body>
 
